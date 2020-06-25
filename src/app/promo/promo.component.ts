@@ -40,6 +40,4 @@ export class PromoComponent implements OnInit {
     console.log("Async await data : ",JSON.stringify(data))
 }); 
 }
- 
-
 }
