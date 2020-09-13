@@ -1,4 +1,4 @@
-import { Component, OnInit , ViewChild } from '@angular/core';
+import { Component, OnInit , ViewChild, HostListener } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";  
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -13,6 +13,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'my-app';
   users : any[]=[];
+  personCountry : any = PERSON_COUNTRY;
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource();
  // dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
@@ -51,11 +52,27 @@ export class AppComponent implements OnInit {
    // this.router.navigateByUrl('/users');
   }
 
+  showTemp() {
+    this.router.navigate(['/showTemp']);
+  }
+
   showPromo() {
     // alert("show user is called");
     debugger
      this.router.navigate(['/promise']);
     // this.router.navigateByUrl('/users');
+   }
+
+   @HostListener('click',['$event'])
+   testListener(event) {
+      //alert('You have clicked...!');
+   }
+
+   public choose : string = "";
+   valueChange(event : any) {
+    // alert("value changed...!   "+event.target.value);
+      this.choose=event.target.value;
+     // alert("value changed...!   "+this.choose);
    }
  
 }
@@ -81,3 +98,40 @@ const ELEMENT_DATA: PeriodicElement[] = [
   { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
   { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
 ];
+
+export interface GroupByCountry {
+  country : string;
+  person : any[];
+}
+
+const PERSON_COUNTRY : GroupByCountry[] = [
+  {
+    country : "India",
+    person : [
+    {
+      name : "satish Kumar",
+    },
+    {
+      name : "Lakha Kumar",
+    },
+    {
+      name : "jayaint Kumar",
+    }
+  ]
+  },
+
+  {
+    country : "USA",
+    person : [
+    {
+      name : "Pintu Kumar",
+    },
+    {
+      name : "Kittu Kumar",
+    },
+    {
+      name : "Priy anka Kumar",
+    }
+  ]
+  }
+]

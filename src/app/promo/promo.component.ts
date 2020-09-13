@@ -27,11 +27,7 @@ export class PromoComponent implements OnInit {
         });
       
       }
-    });
-
-
-//getCallTest() {}
-      
+    });      
   }
   
  getCallTest() {
@@ -39,5 +35,13 @@ export class PromoComponent implements OnInit {
     debugger;
     console.log("Async await data : ",JSON.stringify(data))
 }); 
+}
+
+userSubmit(ngform:any) {
+  debugger;
+   let email = ngform.controls.email.value;
+   let fname = ngform.controls.firstname.value;
+   let lname = ngform.controls.lastname.value;
+   console.log("forms value: ",email+" : "+fname+" : "+lname);
 }
 }

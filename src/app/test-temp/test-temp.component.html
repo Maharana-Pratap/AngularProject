@@ -1,0 +1,18 @@
+<div style="text-align: center;">
+    <h1> Welcome to {{title}}. </h1>
+</div>
+
+<div>
+    Months : 
+    <select (change)="changeMonth($event)" name="month">
+        <option *ngFor="let mnth of months"> {{mnth}} </option>
+    </select>
+</div>
+<br>
+
+<div>
+    <span *ngIf="isAvl;else cond2">Condition is valid</span>
+    <ng-template #cond1>Condition valid from template</ng-template>
+    <ng-template #cond2>Condition invalid from template</ng-template>
+</div>
+<button (click)="myClickFunction($event)">Click Me</button>

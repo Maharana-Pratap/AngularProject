@@ -9,6 +9,7 @@
 <div>
   <button type="button" (click)="showUser()">showUsers</button>
   <button type="button" (click)="showPromo()">showPromise</button>
+  <button type="button" (click)="showTemp()">showTemplate</button>
 </div>
 
 <router-outlet></router-outlet>
@@ -48,6 +49,30 @@
 <!-- Angular 8 pagination -->
 <mat-paginator [length]="5" [pageSize]="3" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
 
-<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+<ngx-spinner bgColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
   <p style="color: white">Please Wait... </p>  
   </ngx-spinner>
+
+  <!-- swithch case example -->
+  <h2>Switch case example</h2>
+<select (change)="valueChange($event)">
+  <option value="">--select--</option>
+   <option value="one">one</option>
+   <option value="two">two</option>
+   <option value="three">three</option>
+</select>
+
+<div [ngSwitch]="choose"> 
+  <div *ngSwitchCase="'one'">First</div>
+  <div *ngSwitchCase="'two'">Second</div>
+  <div *ngSwitchCase="'three'">third</div>
+  <div *ngSwitchCase="''">Detault</div>
+</div>
+
+<h3> ng for group by example</h3>
+<ul *ngFor="let countries of personCountry">
+  <li>{{countries.country}}</li>
+  <ul *ngFor="let peoples of countries.person">
+    <li>{{peoples.name}}</li>
+  </ul>
+</ul>

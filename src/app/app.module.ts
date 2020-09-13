@@ -14,13 +14,20 @@ import { UserService } from './user.service';
 import { UserResolverService } from './user-resolver.service';
 import { PromoComponent } from './promo/promo.component';
 import { PromoService } from './promo.service';
+import { TestTempComponent } from './test-temp/test-temp.component';
+import { ParentComponent } from './parent/parent.component';
+import { ChieldComponent } from './chield/chield.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    PromoComponent
+    PromoComponent,
+    TestTempComponent,
+    ParentComponent,
+    ChieldComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +37,9 @@ import { PromoService } from './promo.service';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],  
   providers: [UserService,PromoService],
   bootstrap: [AppComponent],
